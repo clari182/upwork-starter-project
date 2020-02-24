@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Item } from './Item'
 import styled from 'styled-components'
+import Divider from '../Divider'
 
 const MenuContainer = styled.div`
     left: 0%;
@@ -21,6 +22,8 @@ const MenuContainer = styled.div`
     height: max-content;
     left: 535px;
     top: 1625px;
+
+    margin: 20px 0 0 20px;
     
     padding: 7px 0 7px 0;
 
@@ -31,7 +34,6 @@ const MenuContainer = styled.div`
         color: #8299B6;        
         width: 100%;
         height: 49px;
-        border-bottom: 1px solid #DEECFC;
         padding-left: 21px;
     }
 `
@@ -71,6 +73,7 @@ const Menu = () => {
 
         <p>Show Filter</p>
         <input type="checkbox" id="filter" name="filter" onChange={handleFilterChange} checked={filter} />
+        <Divider/>
         <label>
             <input type="radio" id="subjects" name="type" value="subjects" onChange={handleTypeChange} checked={type === 'subjects'} />
             Subjects
@@ -79,8 +82,13 @@ const Menu = () => {
             <input type="radio" id="people" name="type" value="people" onChange={handleTypeChange} checked={type === 'people'} />
             People
         </label>
+        <Divider/>
         <MenuContainer>
-            {filter && <input className="filter" type="text" placeholder="Filter by name" onChange={filterContent} />}
+            {filter &&
+                <>
+                    <input className="filter" type="text" placeholder="Filter by name" onChange={filterContent} />
+                    <Divider />
+                </>}
             {data.map(item => <Item item={item} />)}
         </MenuContainer>
     </>

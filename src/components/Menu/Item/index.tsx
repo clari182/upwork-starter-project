@@ -1,6 +1,8 @@
-import React, { Component } from 'react'
+/// <reference path='../../../index.d.ts'/>
+
+import React from 'react'
 import styled from 'styled-components'
-import images from '../../../images/*.png';
+import * as images from '../../../images/*.png'
 
 const ItemContainer = styled.div`
     position: static;
@@ -23,6 +25,9 @@ const ItemContainer = styled.div`
     &:hover {
         background: #1E75D8;
         color: #FFFFFF;
+        .subtitle {
+            color: #D1E3F8;
+        }
     }
 
     .images { 
@@ -48,6 +53,7 @@ const ItemContainer = styled.div`
         font-size: 12px;
         line-height: 18px;
         color: #60789A;
+
     }
 `
 
