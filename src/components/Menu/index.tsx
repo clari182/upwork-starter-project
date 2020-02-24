@@ -20,10 +20,8 @@ const MenuContainer = styled.div`
 
     width: max-content;
     height: max-content;
-    left: 535px;
-    top: 1625px;
 
-    margin: 20px 0 0 20px;
+    margin: auto;
     
     padding: 7px 0 7px 0;
 
