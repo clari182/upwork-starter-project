@@ -1,4 +1,5 @@
-/// <reference path='../../../index.d.ts'/>
+/* eslint-disable spaced-comment */
+/// <reference types="../../../index" />
 
 import React from 'react'
 import styled from 'styled-components'
@@ -58,19 +59,20 @@ const ItemContainer = styled.div`
 `
 
 const Item = (props: any) => {
+  const { item } = props
 
-    const { item } = props
-
-    return <ItemContainer>
-        {item.imageUrl &&
-            <p className="images">
-                <img className="product" src={images["product"]} />
-                <img className="person" src={images[item.imageUrl]} />
-            </p>}
-        <p className="title">{item.title}</p>
-        {item.subtitle && <p className="subtitle">{item.subtitle}</p>}
+  return (
+    <ItemContainer>
+      {item.imageUrl && (
+        <p className="images">
+          <img className="product" src={images['product']} />
+          <img className="person" src={images[item.imageUrl]} />
+        </p>
+      )}
+      <p className="title">{item.title}</p>
+      {item.subtitle && <p className="subtitle">{item.subtitle}</p>}
     </ItemContainer>
-
+  )
 }
 
 export { Item }

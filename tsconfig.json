@@ -7,7 +7,9 @@
     "strict": true,
     "target": "es5",
     "types": ["node"],
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
   },
   "include": ["src/**/*"],
   "exclude": [".git", "node_modules"]
