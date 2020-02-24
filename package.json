@@ -1,7 +1,6 @@
 {
   "license": "UNLICENSED",
   "devDependencies": {
-    "@types/node": "^13.7.4",
     "@arkweid/lefthook": "^0.7.0",
     "@types/react": "16.9.17",
     "@types/react-dom": "16.9.4",
@@ -30,6 +29,7 @@
     "clean": "rm -rf .cache && rm -rf ./dist/* && mkdir -p ./dist"
   },
   "dependencies": {
+    "@types/node": "^13.7.4",
     "parcel": "^2.0.0-alpha.3.2"
   }
 }
