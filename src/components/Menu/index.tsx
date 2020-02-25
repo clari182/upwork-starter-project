@@ -56,12 +56,19 @@ const Menu = () => {
 
   const [data, setData] = useState([])
   useEffect(() => {
-    let filteredData = [] as any
-    filteredData = json.filter((d: any) => d.type === type)[0]
-    filteredData.elements = filteredData.elements.filter((d: any) =>
-      d.title.includes(filteredContent)
-    )
-    setData(filteredData.elements)
+    fetch('data.json')
+      .then((response) => response.json())
+      .then((data) => {
+        data = data.filter((d: any) => d.type === type)[0]
+        data.elements = data.elements.filter((d: any) =>
+          d.title.includes(filteredContent)
+        )
+        setData(data.elements)
+      })
+      .catch((r) => {
+        debugger
+        console.log(r)
+      })
   }, [filter, type, filteredContent])
 
   return (
