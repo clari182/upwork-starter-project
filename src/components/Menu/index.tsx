@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Item } from './Item'
 import styled from 'styled-components'
 import Divider from '../Divider'
-import json from '../../data.json'
+import json from '../../assets/data.json'
 
 const MenuContainer = styled.div`
   left: 0%;
@@ -56,19 +56,24 @@ const Menu = () => {
 
   const [data, setData] = useState([])
   useEffect(() => {
-    fetch('data.json')
-      .then((response) => response.json())
-      .then((data) => {
-        data = data.filter((d: any) => d.type === type)[0]
-        data.elements = data.elements.filter((d: any) =>
-          d.title.includes(filteredContent)
+    let filteredData = [] as any
+    filteredData = json.filter((d: any) => d.type === type)
+    filteredData = filteredData
+      .filter((element: any) =>
+        element.elements.some((subElement: any) =>
+          subElement.title.includes(filteredContent)
         )
-        setData(data.elements)
+      )
+      .map((element: any) => {
+        const newElt = Object.assign({}, element) // copies element
+        return newElt.elements.filter((subElement: any) =>
+          subElement.title.includes(filteredContent)
+        )
       })
-      .catch((r) => {
-        debugger
-        console.log(r)
-      })
+    // filteredData.elements = filteredData.elements.filter((d: any) =>
+    //   d.title.includes(filteredContent)
+    // )
+    setData(filteredData[0])
   }, [filter, type, filteredContent])
 
   return (
