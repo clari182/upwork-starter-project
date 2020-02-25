@@ -9,7 +9,7 @@
     "types": ["node"],
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "resolveJsonModule": true,
+    "resolveJsonModule": true
   },
   "include": ["src/**/*", "src/assets/data.json"],
   "exclude": [".git", "node_modules"]
